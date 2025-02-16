@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 const conversationSchema = new mongoose.Schema({
-    participants: [{             // in array cz many ppl can chat at group chat
+    participants: [{            
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     }],

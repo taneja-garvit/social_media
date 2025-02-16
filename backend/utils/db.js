@@ -7,4 +7,4 @@ const connectdb=async()=>{
         console.log(error,"db not connected")
     }
 }
-export default connectdb;   // exported yha and imported in app.js
+export default connectdb;   
