@@ -8,15 +8,15 @@ const isAuthenticated = async (req,res,next)=>{
                 success:false
             });
         }
-        const decode =  jwt.verify(token, process.env.SECRET_KEY); // Here, we are verifying the token that came from cookies with the existing in env variable
+        const decode =  jwt.verify(token, process.env.SECRET_KEY); // Here, we are verifying the token jo upr se aaya with the existing in env variable
         if(!decode|| !decode.userId){
             return res.status(401).json({
                 message:'Invalid token',
                 success:false
             });
         }
-        req.id = decode.userId;
-        next();
+        req.id = decode.userId; // let ke req.id ek var h and jo userId ko store karta h and ye Userid jo controllers me (login me ) tha wha se liya h at line 68
+        next(); // next ka use h ke iske aage ke jitne bhi routes h controllers he use call kr de
     } catch (error) {
         console.log(error);
     }
