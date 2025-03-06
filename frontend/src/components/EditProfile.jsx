@@ -37,23 +37,23 @@ const EditProfile = () => {
         const formData = new FormData();
         formData.append("bio", input.bio);
         formData.append("gender", input.gender);
-        if(input.profilePhoto){
+        if (input.profilePhoto) {
             formData.append("profilePhoto", input.profilePhoto);
         }
         try {
             setLoading(true);
-            const res = await axios.post('http://localhost:8000/api/v1/user/profile/edit', formData,{
-                headers:{
-                    'Content-Type':'multipart/form-data'
+            const res = await axios.post('http://localhost:8000/api/v1/user/profile/edit', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
                 },
-                withCredentials:true
+                withCredentials: true
             });
-            if(res.data.success){
+            if (res.data.success) {
                 const updatedUserData = {
                     ...user,
-                    bio:res.data.user?.bio,
-                    profilePicture:res.data.user?.profilePicture,
-                    gender:res.data.user.gender
+                    bio: res.data.user?.bio,
+                    profilePicture: res.data.user?.profilePicture,
+                    gender: res.data.user.gender
                 };
                 dispatch(setAuthUser(updatedUserData));
                 navigate(`/profile/${user?._id}`);
@@ -63,7 +63,7 @@ const EditProfile = () => {
         } catch (error) {
             console.log(error);
             toast.error(error.response.data.messasge);
-        } finally{
+        } finally {
             setLoading(false);
         }
     }
@@ -73,9 +73,8 @@ const EditProfile = () => {
                 <h1 className='font-bold text-xl'>Edit Profile</h1>
                 <div className='flex items-center justify-between bg-gray-100 rounded-xl p-4'>
                     <div className='flex items-center gap-3'>
-                        <Avatar>
-                            <AvatarImage src={user?.profilePicture} alt="post_image" />
-                            <AvatarFallback>CN</AvatarFallback>
+                        <Avatar >
+                            <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
                         </Avatar>
                         <div>
                             <h1 className='font-bold text-sm'>{user?.username}</h1>

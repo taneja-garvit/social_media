@@ -58,8 +58,7 @@ const LeftSidebar = () => {
         {
             icon: (
                 <Avatar className='w-6 h-6'>
-                    <AvatarImage src={user?.profilePicture} alt="@shadcn" />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
                 </Avatar>
             ),
             text: "Profile"

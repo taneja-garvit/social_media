@@ -29,10 +29,9 @@ const Profile = () => {
       <div className='flex flex-col gap-20 p-8'>
         <div className='grid grid-cols-2'>
           <section className='flex items-center justify-center'>
-            <Avatar className='h-32 w-32'>
-              <AvatarImage src={userProfile?.profilePicture} alt="profilephoto" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+            <Avatar className="h-32 w-32">
+            <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
+          </Avatar>
           </section>
           <section>
             <div className='flex flex-col gap-5'>

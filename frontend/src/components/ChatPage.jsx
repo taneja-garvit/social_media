@@ -36,7 +36,7 @@ const ChatPage = () => {
         return () => {
             dispatch(setSelectedUser(null));
         }
-    },[]);
+    }, []);
 
     return (
         <div className='flex ml-[16%] h-screen'>
@@ -49,9 +49,8 @@ const ChatPage = () => {
                             const isOnline = onlineUsers.includes(suggestedUser?._id);
                             return (
                                 <div onClick={() => dispatch(setSelectedUser(suggestedUser))} className='flex gap-3 items-center p-3 hover:bg-gray-50 cursor-pointer'>
-                                    <Avatar className='w-14 h-14'>
-                                        <AvatarImage src={suggestedUser?.profilePicture} />
-                                        <AvatarFallback>CN</AvatarFallback>
+                                    <Avatar>
+                                        <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
                                     </Avatar>
                                     <div className='flex flex-col'>
                                         <span className='font-medium'>{suggestedUser?.username}</span>
@@ -69,8 +68,7 @@ const ChatPage = () => {
                     <section className='flex-1 border-l border-l-gray-300 flex flex-col h-full'>
                         <div className='flex gap-3 items-center px-3 py-2 border-b border-gray-300 sticky top-0 bg-white z-10'>
                             <Avatar>
-                                <AvatarImage src={selectedUser?.profilePicture} alt='profile' />
-                                <AvatarFallback>CN</AvatarFallback>
+                                <AvatarImage src={selectedUser?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt='profile' />
                             </Avatar>
                             <div className='flex flex-col'>
                                 <span>{selectedUser?.username}</span>

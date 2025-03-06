@@ -16,8 +16,8 @@ const CreatePost = ({ open, setOpen }) => {
   const [caption, setCaption] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [loading, setLoading] = useState(false);
-  const {user} = useSelector(store=>store.auth);
-  const {posts} = useSelector(store=>store.post);
+  const { user } = useSelector(store => store.auth);
+  const { posts } = useSelector(store => store.post);
   const dispatch = useDispatch();
 
   const fileChangeHandler = async (e) => {
@@ -59,8 +59,7 @@ const CreatePost = ({ open, setOpen }) => {
         <DialogHeader className='text-center font-semibold'>Create New Post</DialogHeader>
         <div className='flex gap-3 items-center'>
           <Avatar>
-            <AvatarImage src={user?.profilePicture} alt="img" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
           </Avatar>
           <div>
             <h1 className='font-semibold text-xs'>{user?.username}</h1>

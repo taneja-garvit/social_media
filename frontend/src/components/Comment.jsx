@@ -6,8 +6,7 @@ const Comment = ({ comment }) => {
         <div className='my-2'>
             <div className='flex gap-3 items-center'>
                 <Avatar>
-                    <AvatarImage src={comment?.author?.profilePicture} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={comment?.author?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} />
                 </Avatar>
                 <h1 className='font-bold text-sm'>{comment?.author.username} <span className='font-normal pl-1'>{comment?.text}</span></h1>
             </div>

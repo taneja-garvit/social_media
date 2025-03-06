@@ -72,10 +72,10 @@ const CommentDialog = ({ open, setOpen }) => {
             <div className='flex items-center justify-between p-4'>
               <div className='flex gap-3 items-center'>
                 <Link>
-                  <Avatar>
-                    <AvatarImage src={selectedPost?.author?.profilePicture} />
-                    <AvatarFallback>CN</AvatarFallback>
-                  </Avatar>
+                <Avatar>
+                <AvatarImage src={selectedPost?.author?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} />
+              </Avatar>
+                  
                 </Link>
                 <div>
                   <Link className='font-semibold text-xs'>{selectedPost?.author?.username}</Link>

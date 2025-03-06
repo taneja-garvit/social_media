@@ -10,9 +10,8 @@ const RightSidebar = () => {
     <div className='w-fit my-10 pr-32'>
       <div className='flex items-center gap-2'>
         <Link to={`/profile/${user?._id}`}>
-          <Avatar>
-            <AvatarImage src={user?.profilePicture} alt="post_image" />
-            <AvatarFallback>CN</AvatarFallback>
+        <Avatar>
+            <AvatarImage src={user?.profilePicture ? userProfile.profilePicture : 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'} alt="post_image" />
           </Avatar>
         </Link>
         <div>
