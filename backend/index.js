@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(cookieParser()) // using this as jb browser se request aaygi backend me to token store cookie me he store hongi nhi to cookie parse jhi hogi
 app.use(urlencoded({extended: true}));
 const corsOptions={
-    origin:'http://localhost:5173',
+    origin: process.env.frontend_url,
     credentials:true,
 }
 app.use(cors(corsOptions))
